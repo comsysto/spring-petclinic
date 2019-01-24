@@ -1,13 +1,19 @@
 :source-highlighter: coderay
-== Ein erstes Asciidoc(ument)
-Absätze können
-beliebig viele
-Zeilenumbrüche
-enthalten.
+== Spring-Petclinic
+In this document we want to show how to apply ideas from living documentation
+by generating parts of the
+https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application[original presentation]
+from the source code.
 
-Erst nach einer Leerzeile beginnt ein neuer Absatz.
+=== Data Access
+[plantuml,"data-access",png]
+--
+include::../package-class.puml[]
+--
 
-=== Überschriften
+
+
+== Ascidoc examples
 Textformatierungen, Aufzählungen (Listen)
 
 * kennen Sie von Wikis oder Markdown:
