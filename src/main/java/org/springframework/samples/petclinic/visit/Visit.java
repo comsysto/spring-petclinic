@@ -25,6 +25,8 @@ import javax.validation.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.samples.petclinic.model.BaseEntity;
 
+import com.comsysto.livingdoc.annotation.plantuml.PlantUmlClass;
+
 /**
  * Simple JavaBean domain object representing a visit.
  *
@@ -33,6 +35,7 @@ import org.springframework.samples.petclinic.model.BaseEntity;
  */
 @Entity
 @Table(name = "visits")
+@PlantUmlClass
 public class Visit extends BaseEntity {
 
     @Column(name = "visit_date")
