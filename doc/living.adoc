@@ -13,24 +13,3 @@ include::../package-class.puml[]
 
 
 
-== Ascidoc examples
-Textformatierungen, Aufzählungen (Listen)
-
-* kennen Sie von Wikis oder Markdown:
-* Formate wie *fett*, _kursiv_
-* Auch Links sind einfach: http://javamagazin.de[JavaMagazin].
-
-.Code-Highlighting
-[source,groovy]
-10.times { println "Hello, AsciiDoc!" }
-
-[plantuml,"demo",png]
---
-artifact ".adoc-File" as adoc
-artifact ".html-File" as html
-artifact ".pdf-File" as pdf
-component asciidoctorj
-adoc -> asciidoctorj
-asciidoctorj -down-> html
-asciidoctorj -down-> pdf
---
