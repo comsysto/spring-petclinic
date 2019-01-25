@@ -220,6 +220,30 @@
           </dependency>
         </dependencies>
       </plugin>
+
+      <plugin>
+        <groupId>com.github.jeluard</groupId>
+        <artifactId>plantuml-maven-plugin</artifactId>
+        <version>1.2</version>
+        <configuration>
+          <sourceFiles>
+            <directory>${basedir}</directory>
+            <includes>
+              <include>doc/**/*.puml</include>
+            </includes>
+          </sourceFiles>
+          <outputInSourceDirectory>true</outputInSourceDirectory>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>net.sourceforge.plantuml</groupId>
+            <artifactId>plantuml</artifactId>
+            <version>8031</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+
+
     </plugins>
   </build>
 

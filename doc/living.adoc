@@ -6,6 +6,10 @@ https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application[original
 from the source code.
 
 === Petclinic core domain
+ifdef::env-github[]
+image::core-domain_class.png[Core Domain]
+endif::[]
+
 [plantuml,"data-access",png]
 --
 include::core-domain_class.puml[]

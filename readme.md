@@ -3,7 +3,17 @@
 ## Understanding the Spring Petclinic application with a few diagrams
 <a href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">See the presentation here</a>
 
-See our version with living documentation [here](doc/living.adoc)
+## Living Documentation
+
+This is a fork spring petclinic enriched with concepts from living documentation.
+
+Within the maven build plantuml files are generated based on our livingdoc annotation processing.
+In order to convert plantuml diagram to png, to be able to browse the documentation on github, you need to run
+```
+$  mvn clean com.github.jeluard:plantuml-maven-plugin:generate                                                                                                                                                           ✔  100% 🔋
+``` 
+
+You'll find the living documentation [here](doc/living.adoc)
 
 ## Running petclinic locally
 Petclinic is a [Spring Boot](https://spring.io/guides/gs/spring-boot) application built using [Maven](https://spring.io/guides/gs/maven/). You can build a jar file and run it from the command line:
