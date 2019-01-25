@@ -35,8 +35,11 @@ import javax.persistence.Table;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.samples.petclinic.livingdoc.LivingDocSettings;
 import org.springframework.samples.petclinic.model.NamedEntity;
 import org.springframework.samples.petclinic.visit.Visit;
+
+import com.comsysto.livingdoc.annotation.plantuml.PlantUmlClass;
 
 /**
  * Simple business object representing a pet.
@@ -47,6 +50,7 @@ import org.springframework.samples.petclinic.visit.Visit;
  */
 @Entity
 @Table(name = "pets")
+@PlantUmlClass(diagramId = LivingDocSettings.CORE_DOMAIN_DIAGRAM_ID)
 public class Pet extends NamedEntity {
 
     @Column(name = "birth_date")

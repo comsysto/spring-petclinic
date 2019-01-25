@@ -23,6 +23,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.samples.petclinic.livingdoc.LivingDocSettings;
 import org.springframework.samples.petclinic.model.BaseEntity;
 
 import com.comsysto.livingdoc.annotation.plantuml.PlantUmlClass;
@@ -35,7 +36,7 @@ import com.comsysto.livingdoc.annotation.plantuml.PlantUmlClass;
  */
 @Entity
 @Table(name = "visits")
-@PlantUmlClass
+@PlantUmlClass(diagramId = LivingDocSettings.CORE_DOMAIN_DIAGRAM_ID)
 public class Visit extends BaseEntity {
 
     @Column(name = "visit_date")

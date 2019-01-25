@@ -32,7 +32,11 @@ import javax.validation.constraints.NotEmpty;
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.core.style.ToStringCreator;
+import org.springframework.samples.petclinic.livingdoc.LivingDocSettings;
 import org.springframework.samples.petclinic.model.Person;
+
+import com.comsysto.livingdoc.annotation.plantuml.PlantUmlClass;
+import com.comsysto.livingdoc.annotation.plantuml.PlantUmlNote;
 
 /**
  * Simple JavaBean domain object representing an owner.
@@ -44,6 +48,8 @@ import org.springframework.samples.petclinic.model.Person;
  */
 @Entity
 @Table(name = "owners")
+@PlantUmlClass(diagramId = LivingDocSettings.CORE_DOMAIN_DIAGRAM_ID)
+@PlantUmlNote(body = "Represents the owner of a pet")
 public class Owner extends Person {
     @Column(name = "address")
     @NotEmpty

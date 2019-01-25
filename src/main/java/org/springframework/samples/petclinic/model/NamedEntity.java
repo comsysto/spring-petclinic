@@ -18,6 +18,9 @@ package org.springframework.samples.petclinic.model;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import org.springframework.samples.petclinic.livingdoc.LivingDocSettings;
+
+import com.comsysto.livingdoc.annotation.plantuml.PlantUmlClass;
 
 /**
  * Simple JavaBean domain object adds a name property to <code>BaseEntity</code>. Used as a base class for objects
@@ -27,6 +30,7 @@ import javax.persistence.MappedSuperclass;
  * @author Juergen Hoeller
  */
 @MappedSuperclass
+@PlantUmlClass(diagramId = LivingDocSettings.CORE_DOMAIN_DIAGRAM_ID)
 public class NamedEntity extends BaseEntity {
 
     @Column(name = "name")

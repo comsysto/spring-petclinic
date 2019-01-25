@@ -31,7 +31,11 @@ import javax.xml.bind.annotation.XmlElement;
 
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
+import org.springframework.samples.petclinic.livingdoc.LivingDocSettings;
 import org.springframework.samples.petclinic.model.Person;
+
+import com.comsysto.livingdoc.annotation.plantuml.PlantUmlClass;
+import com.comsysto.livingdoc.annotation.plantuml.PlantUmlNote;
 
 /**
  * Simple JavaBean domain object representing a veterinarian.
@@ -43,6 +47,8 @@ import org.springframework.samples.petclinic.model.Person;
  */
 @Entity
 @Table(name = "vets")
+@PlantUmlClass(diagramId = LivingDocSettings.CORE_DOMAIN_DIAGRAM_ID)
+@PlantUmlNote(body = "Represents a veterinarian", position = PlantUmlNote.Position.BOTTOM)
 public class Vet extends Person {
 
     @ManyToMany(fetch = FetchType.EAGER)

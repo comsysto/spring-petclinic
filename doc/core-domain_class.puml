@@ -1,0 +1,25 @@
+@startuml
+
+class BaseEntity
+class NamedEntity
+class Visit
+class Vet
+note bottom of Vet
+Represents a veterinarian
+end note
+
+class Person
+class Pet
+class Owner
+note top of Owner
+Represents the owner of a pet
+end note
+
+
+BaseEntity <|-- NamedEntity
+BaseEntity <|-- Visit
+Person <|-- Vet
+BaseEntity <|-- Person
+NamedEntity <|-- Pet
+Person <|-- Owner
+@enduml

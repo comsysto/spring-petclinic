@@ -22,6 +22,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import org.springframework.samples.petclinic.livingdoc.LivingDocSettings;
+
+import com.comsysto.livingdoc.annotation.plantuml.PlantUmlClass;
+
 /**
  * Simple JavaBean domain object with an id property. Used as a base class for objects
  * needing this property.
@@ -30,6 +34,7 @@ import javax.persistence.MappedSuperclass;
  * @author Juergen Hoeller
  */
 @MappedSuperclass
+@PlantUmlClass(diagramId = LivingDocSettings.CORE_DOMAIN_DIAGRAM_ID)
 public class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

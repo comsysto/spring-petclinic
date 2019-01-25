@@ -19,12 +19,17 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.samples.petclinic.livingdoc.LivingDocSettings;
+
+import com.comsysto.livingdoc.annotation.plantuml.PlantUmlClass;
+
 /**
  * Simple JavaBean domain object representing an person.
  *
  * @author Ken Krebs
  */
 @MappedSuperclass
+@PlantUmlClass(diagramId = LivingDocSettings.CORE_DOMAIN_DIAGRAM_ID)
 public class Person extends BaseEntity {
 
     @Column(name = "first_name")
