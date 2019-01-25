@@ -5,10 +5,10 @@ by generating parts of the
 https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application[original presentation]
 from the source code.
 
-=== Data Access
+=== Petclinic core domain
 [plantuml,"data-access",png]
 --
-include::../package-class.puml[]
+include::core-domain_class.puml[]
 --
 
 
