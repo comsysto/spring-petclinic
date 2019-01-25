@@ -1,0 +1,91 @@
+== Spring PetClinic - C4 Model PlantUML Example
+
+Diagrams in PlantUML based on C4-Model:
+
+* https://c4model.com/
+* https://github.com/RicardoNiepel/C4-PlantUML
+
+=== System Context
+[plantuml,"c4-system",png]
+--
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Context.puml
+LAYOUT_LEFT_RIGHT
+
+
+Person(personAlias, "Clinic Employee", "An employee of the clinic")
+System(systemAlias, "Spring PetClinic", "Allows employees to view and manage information regading the veterinarians, the clients and their pets.")
+
+Rel(personAlias, systemAlias, "Uses", "HTTPS")
+--
+
+
+=== Container Diagram
+[plantuml,"c4-container",png]
+--
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+
+LAYOUT_WITH_LEGEND
+LAYOUT_LEFT_RIGHT
+
+
+Person(personAlias, "Clinic Employee", "[Person]\nAn employee of the clinic")
+System_Boundary(c1, "Spring PetClinic"){
+    Container(webAppAlias, "Web Application", "Container: Java and Spring" ,"Allows employees to view and manage information regading the veterinarians, the clients and their pets.")
+    ContainerDb(relDB, "Database", "Container: Relational Database" ,"Stores information regarding the veterinarians, the clients and their pets.")
+
+}
+
+Rel(personAlias, webAppAlias, "Uses", "HTTPS")
+Rel(webAppAlias, relDB, "Reads from and writes to", "JDBC")
+--
+
+
+=== Component View - Web Application
+
+[plantuml,"c4-component",png]
+--
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Component.puml
+LAYOUT_WITH_LEGEND
+
+skinparam wrapWidth 800
+skinparam maxMessageSize 200
+
+
+Person(personAlias, "Clinic Employee", "[Person]\nAn employee of the clinic")
+Container_Boundary(c1, "Spring PetClinic Web Application"){
+    Component(vetCtrlAlias, "VetController", "Component: Spring MVC Controller" )
+    Component(visitCtrlAlias, "VisitController", "Component: Spring MVC Controller" )
+    Component(petCtrlAlias, "PetController", "Component: Spring MVC Controller" )
+    Component(ownerCtrlAlias, "OwnerController", "Component: Spring MVC Controller")
+
+    Component(vetRepoAlias, "VetRepository", "Component: Spring Repository" )
+    Component(visitRepolAlias, "VisitRepository", "Component: Spring Repository" )
+    Component(petRepoAlias, "PetRepository", "Component: Spring Repository" )
+    Component(ownerRepoAlias, "OwnerRepository", "Component: Spring Repository" )
+}
+ContainerDb(relDB, "Database", "Container: Relational Database" ,"Stores information regarding the veterinarians, the clients and their pets.")
+
+
+Rel(personAlias, vetCtrlAlias, "Uses", "HTTPS")
+Rel(personAlias, visitCtrlAlias, "Uses", "HTTPS")
+Rel(personAlias, petCtrlAlias, "Uses", "HTTPS")
+Rel(personAlias, ownerCtrlAlias, "Uses", "HTTPS")
+
+Rel(vetCtrlAlias, vetRepoAlias, "Uses")
+Rel(visitCtrlAlias,visitRepolAlias, "Uses")
+Rel(petCtrlAlias, petRepoAlias, "Uses")
+Rel(ownerCtrlAlias, ownerRepoAlias, "Uses")
+
+'Rel_Neighbor(petRepoAlias, visitRepolAlias, "Uses")
+Rel_Neighbor(petRepoAlias, ownerRepoAlias, "Uses")
+
+
+Rel(vetRepoAlias,relDB, "Reads from and writes to", "JDBC")
+Rel(visitRepolAlias,relDB, "Reads from and writes to", "JDBC")
+Rel(petRepoAlias,relDB, "Reads from and writes to", "JDBC")
+Rel(ownerRepoAlias,relDB, "Reads from and writes to", "JDBC")
+
+Lay_L(petRepoAlias, visitRepolAlias)
+'Lay_R(vetRepoAlias, visitRepolAlias)
+
+--
